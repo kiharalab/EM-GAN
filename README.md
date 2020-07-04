@@ -8,10 +8,8 @@ Contact: Daisuke Kihara (dkihara@purdue.edu)
 
 Cite : Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi & Daisuke Kihara. Super Resolution Cryo-EM Maps With 3D Deep Generative Networks. In submission (2020).  
 
-## About ContactGAN  
-> ContactGAN is a novel contact map denoising and refinement method based on Generative adversarial networks.  
-> ContactGAN can be trained and combined with any contact prediction method to improve and correct similar patterns of errors that creep into the method.
-> Currently ContactGAN is trained and works with 4 contact prediction methods - CCMPred, DeepContact, DeepCov and trRosetta
+## About SuperEM  
+>   
 ![](https://github.com/kiharalab/SuperEM/blob/master/data/git/architecture.png)   
 
 
@@ -19,10 +17,7 @@ Cite : Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi & Daisuke Kih
 ```
 
 Python 3 : https://www.python.org/downloads/  
-pytorch : pip/conda install pytorch  
-CCMPred : A freely available software. It can be downloaded and installed from here : https://github.com/soedinglab/CCMpred  
-DeepContact : A freely available software. It can be downloaded and installed from here : https://github.com/largelymfs/deepcontact   
-DeepCov : A freely available software. It can be downloaded and installed from here : https://github.com/psipred/DeepCov  
+pytorch : pip/conda install pytorch   
 
 ```
 ## Instructions  
