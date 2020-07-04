@@ -8,7 +8,7 @@ import numpy as np
 import argparse
 import calendar, time
 
-from utils1 import Logger
+from logger import Logger
 from model import Generator, Discriminator
 import utils
 from utils import TrainDatasetFromFolder as TDF
