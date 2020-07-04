@@ -1,13 +1,12 @@
 # ContactGAN
-ContactGAN takes a predicted protein contact map as input and outputs a new contact map that better captures the residue-residue contacts
-
-Copyright (C) 2020 Sai Raghavendra Maddhuri, Aashish Jain, Yuki Kagaya, Genki Terashi, Daisuke Kihara, and Purdue University.
+SuperEM is a 3D deep learning based super-resolution method which uses Generative Adversarial Networks (GAN) to improve the resolution of cryo-EM maps in the resolution ranges of 3 Å to 6 Å.  
+Copyright (C) 2020 Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi, Daisuke Kihara, and Purdue University.
 
 License: GPL v3 for academic use. (For commercial use, please contact us for different licensing)
 
 Contact: Daisuke Kihara (dkihara@purdue.edu)
 
-Cite : Sai Raghavendra Maddhuri Venkata Subramaniya, Aashish Jain, Yuki Kagaya, Genki Terashi, and Daisuke Kihara, Protein Contact Map De-noising using Generative Adversarial Networks. In Submission. (2020)
+Cite : Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi & Daisuke Kihara. Super Resolution Cryo-EM Maps With 3D Deep Generative Networks. In submission (2020).  
 
 ## About ContactGAN  
 > ContactGAN is a novel contact map denoising and refinement method based on Generative adversarial networks.  
