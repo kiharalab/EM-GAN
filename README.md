@@ -12,7 +12,7 @@ Cite : Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi & Daisuke Kih
 > ContactGAN is a novel contact map denoising and refinement method based on Generative adversarial networks.  
 > ContactGAN can be trained and combined with any contact prediction method to improve and correct similar patterns of errors that creep into the method.
 > Currently ContactGAN is trained and works with 4 contact prediction methods - CCMPred, DeepContact, DeepCov and trRosetta
-![](https://github.com/kiharalab/ContactGAN/blob/master/data/git/fig1.png)   
+![](https://github.com/kiharalab/SuperEM/blob/master/data/git/architecture.png)   
 
 
 ## Pre-required software
