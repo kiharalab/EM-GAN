@@ -137,11 +137,11 @@ python test.py --input=INPUT_EM_MAP_DIR --G_res_blocks=15 --D_res_blocks=3 --G_p
 </div>
 <div class="w3-content">
     <div class="w3-twothird">
-      <h3>SuperEM super-resolution map generation </h3>
-      <h5>
+     <h3>SuperEM super-resolution map generation </h3>
+    <h5>
 	You can then run the SuperEM program to generate super-resolution EM map as follows
       </h5>
-<p class="w3-code">python test.py --input=test_dataset_location --G_res_blocks=15 --D_res_blocks=3 --G_path=model/Generator --D_path=model/Generator</p>
+<p class="w3-code"> python test.py --input=test_dataset_location --G_res_blocks=15 --D_res_blocks=3 --G_path=model/Generator --D_path=model/Generator </p>
 		<h5>
 	An example of generated super-resolution map of EMD-2788 is shown on the right.
   </div> 
@@ -151,10 +151,3 @@ python test.py --input=INPUT_EM_MAP_DIR --G_res_blocks=15 --D_res_blocks=3 --G_p
 </div>
 <div class="w3-row-padding w3-padding-32 w3-container">
 </div>
-### Output contact map Visualization  
-```
-python util/plot_cmap.py --input=data/example_files/output/5OHQA.npy
- 
-```
-Below is an example visualization for contact maps of CCMpred before and after ContactGAN for protein with PDB ID: [5OHQA](http://www.rcsb.org/structure/5OHQ).      
-![](https://github.com/kiharalab/ContactGAN/blob/master/data/git/fig2.jpg)   
