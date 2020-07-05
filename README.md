@@ -1,6 +1,6 @@
 # SuperEM
 <p align="center">
-  <img src="data/git/logo1.png" alt="framework" width="80%">
+  <img src="data/git/logo1.png" alt="framework" width="50%">
 </p> 
 SuperEM is a 3D deep learning based super-resolution method which uses Generative Adversarial Networks (GAN) to improve the resolution of cryo-EM maps in the resolution ranges of 3 Å to 6 Å.  
 Copyright (C) 2020 Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi, Daisuke Kihara, and Purdue University.
