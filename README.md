@@ -117,8 +117,7 @@ python test.py --input=INPUT_EM_MAP_DIR --G_res_blocks=15 --D_res_blocks=3 --G_p
 <h5>You can download the EM map for protein structure with EMID 2788 <a href="ftp://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-2788" target="_blank" >here</a>. Use this map file and follow the instructions in step 1 of usage guide to generate input dataset file.
 		The trimmap file is generated as 
 	</h5>
-	<pre><p class="w3-code">data_prep/HLmapData_new  2788.mrc -c 0.16 <br>
-	> 2788_trimmap</p></pre>
+	<pre><p class="w3-code">data_prep/HLmapData_new  2788.mrc -c 0.16 >  2788_trimmap</p></pre>
 	<h5>The author recommended contour level for the map EMD-2788 is 0.16 which has been provided as one of the options above.
 	</h5>
 	<h5>You can generate the input dataset file as follows,
@@ -142,8 +141,7 @@ python test.py --input=INPUT_EM_MAP_DIR --G_res_blocks=15 --D_res_blocks=3 --G_p
       <h5>
 	You can then run the SuperEM program to generate super-resolution EM map as follows
       </h5>
-	<p class="w3-code">python test.py --input=test_dataset_location --G_res_blocks=15 </br>
-	--D_res_blocks=3 --G_path=model/Generator --D_path=model/Generator</p>
+<p class="w3-code">python test.py --input=test_dataset_location --G_res_blocks=15 --D_res_blocks=3 --G_path=model/Generator --D_path=model/Generator</p>
 		<h5>
 	An example of generated super-resolution map of EMD-2788 is shown on the right.
   </div> 
