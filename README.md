@@ -30,17 +30,16 @@ pytorch : pip/conda install pytorch
 
 <div id="commands" class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
-	<h5> In the following section, we give a step-by-step guide to run various programs that we talked about in the earlier section.
-	You can find the link for these programs in Downloads tab.
+	<h5> In the following section, we give a step-by-step guide to run various programs for SuperEM.
   </h5>
 
-	<div id="datagen" class="w3-row-padding w3-padding-64 w3-container">
-	<h2>Input file generation</h2>
-	<h5>
-	Generate the input file called [your_map_id]_dataset from your map file by following the below 2 steps.
-	</h5>
-	<b><h3>1) Trimmap File generation</h3></b>
-      <pre><p class="w3-code">
+<div id="datagen" class="w3-row-padding w3-padding-64 w3-container">
+<h2>Input file generation</h2>
+<h5>
+Generate the input file called [your_map_id]_dataset from your map file by following the below 2 steps.
+</h5>
+<b><h3>1) Trimmap File generation</h3></b>
+<pre><p class="w3-code">
 <b>data_prep/HLmapData_new [sample_mrc] [options] > [output_trimmap_filename]</b><br>
 <b>INPUTS:</b><br>
 HLmapData_new expects sample_mrc to be a valid filename. Supported file formats are Situs, CCP4, and MRC2000. 
