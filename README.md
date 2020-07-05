@@ -141,11 +141,15 @@ python test.py --input=INPUT_EM_MAP_DIR --G_res_blocks=15 --D_res_blocks=3 --G_p
     <h5>
 	You can then run the SuperEM program to generate super-resolution EM map as follows
       </h5>
-<p class="w3-code"> python test.py --input=test_dataset_location --G_res_blocks=15 --D_res_blocks=3 --G_path=model/Generator --D_path=model/Generator </p>
-		<h5>
+
+```
+python test.py --input=test_dataset_location --G_res_blocks=15 --D_res_blocks=3 --G_path=model/Generator --D_path=model/Generator
+
+```
+<h5>
 	An example of generated super-resolution map of EMD-2788 is shown on the right.
   </div> 
-    <div class="w3-third w3-center ">
+    <div class="w3-center ">
      <img src=data/git/2.png width="600" height="300">  <p align="left"> Super-Resolution (SR) Map, 2788_SR.mrc</p>
     </div>  
 </div>
