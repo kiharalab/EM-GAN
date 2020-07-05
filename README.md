@@ -147,7 +147,7 @@ python test.py --input=test_dataset_location --G_res_blocks=15 --D_res_blocks=3 
 
 ```
 <h5>
-	An example of generated super-resolution map of EMD-2788 is shown on the right.
+	An example of generated super-resolution map of EMD-2788 is shown below.
   </div> 
     <div class="w3-center ">
      <img src=data/git/2.png width="600" height="300">  <p align="left"> Super-Resolution (SR) Map, 2788_SR.mrc</p>
