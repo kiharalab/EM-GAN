@@ -75,7 +75,7 @@ We recommend using a value of 4 for this option. Increasing this value also incr
 <i>default=1 </i><br>
 -h, --help, -?, /? Displays the list of above options.<br><br>
 <b>USAGE:</b>
-./HLmapData_new  -a protein.mrc -b protein.mrc -A <Recommended contour level> -B <Recommended contour level> -w 12 -s 4>  protein_trimmap
+data_prep/HLmapData -a protein.mrc -b protein.mrc -A <Recommended contour level> -B <Recommended contour level> -w 12 -s 4>  protein_trimmap
       </p></pre>
 <br>
 
@@ -141,7 +141,7 @@ Super-Resolution map is written to Merged.mrc file
 <h5>You can download the EM map for protein structure with EMID 2788 : ftp://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-2788. Use this map file and follow the instructions in step 1 of usage guide to generate input dataset file.
 		The trimmap file is generated as 
 	</h5>
-	<pre><p class="w3-code">./HLmapData_new  -a 2788.mrc -b 2788.mrc -A  0.16 -B 0.16 -w 12 -s 4>  2788_trimmap</p></pre>
+	<pre><p class="w3-code">data_prep/HLmapData -a 2788.mrc -b 2788.mrc -A  0.16 -B 0.16 -w 12 -s 4>  2788_trimmap</p></pre>
 	<h5>The author recommended contour level for the map EMD-2788 is 0.16 which has been provided as one of the options above.
 	</h5>
 	<h5>You can generate the input dataset file as follows,
