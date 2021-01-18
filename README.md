@@ -48,24 +48,34 @@ Generate the input file called [your_map_id]_dataset from your map file by follo
 </h5>
 <b><h3>1) Trimmap File generation</h3></b>
 <pre><p class="w3-code">
-<b>data_prep/HLmapData_new [sample_mrc] [options] > [output_trimmap_filename]</b><br>
+<b>data_prep/HLmapData -a [sample_mrc] -b  [sample_mrc] [options] > [output_trimmap_filename]</b><br>
 <b>INPUTS:</b><br>
 HLmapData_new expects sample_mrc to be a valid filename. Supported file formats are Situs, CCP4, and MRC2000. 
 Format is deduced from FILE's extension. 
 <br>
 <b>OPTIONS:</b><br>
--c, --contour The level of isosurface to generate density values for. 
+-a [mrc] Input map file of the experimental map.
+<br>
+-b [mrc] Input map file of the experimental map (Same map as above). If you have a simulated map available and are validating, specify that instead 
+<br>
+-A [float] The level of isosurface to generate density values for the first map (map specified with option -a). 
 You can use the author recommended contour level for experimental EM maps.
+<i>default=0.0</i><br>
+-B  [float] The level of isosurface to generate density values for the first map (map specified with option -b)
+You can use the author recommended contour level for experimental EM maps. If input is simulated map, specify 0.0
 <i>default=0.0</i><br>
 -w [integer] This option sets the dimensions of sliding cube used for input data generation.
 The size of the cube is calculated as <i>2*w+1</i>.
 We recommend using a value of 12 for this option that generates input cube of size 25*25*25.
 Please be mindful while increasing this option as it increases the portion of an EM map a single cube covers.
 Increasing this value also increases running time.  
-<i>default=12 (->25x25x25)</i><br>
+<i>default=5 (->11x11x11)</i><br>
+-s [integer] This option specifies the stride value to be used while generating input cubes
+We recommend using a value of 4 for this option. Increasing this value also increases running time.  
+<i>default=1 </i><br>
 -h, --help, -?, /? Displays the list of above options.<br><br>
 <b>USAGE:</b>
-./HLmapData_new protein.map -c 0.0 -w 12 >  protein_trimmap
+./HLmapData_new  -a protein.mrc -b protein.mrc -A <Recommended contour level> -B <Recommended contour level> -w 12 -s 4>  protein_trimmap
       </p></pre>
 <br>
 
@@ -75,15 +85,12 @@ Increasing this value also increases running time.
 	This program is a python script and it works with both python2 and python3. They can be downloaded <a href=https://www.python.org/downloads/ target="_blank">here</a>.<br>
 	</h5>
       <pre><p class="w3-code">
-<b>python data_prep/dataset_final.py [sample_trimmap] [input_dataset_file] [ID]</b>
+<b>python data_prep/dataset_reso.py [sample_trimmap] [<ID>_data] [dataset_folder]</b>
 <br>
 <b>INPUTS:</b> 
-Inputs to this script are trimmap, and ID is a unique identifier of a map such as 
-SCOPe ID, EMID, etc.<br><br>
-<b>OUTPUT:</b>
-Specify a name for input dataset file in place of [input_dataset_file].<br><br>
+Inputs to this script are trimmap generated in the previous step, ID is a unique identifier of a map such as EMID, and dataset_folder which is a folder to write dataset files. <br><br>
 <b>USAGE:</b>
-python data_prep/dataset_final.py protein_trimmap protein_dataset protein_id
+python data_prep/dataset_reso.py protein_trimmap 1_data ./data_dir/
      </p></pre>  
       </div>
   </div>
@@ -96,22 +103,31 @@ python data_prep/dataset_final.py protein_trimmap protein_dataset protein_id
 	This program is a python script and it works with both python2 and python3.
 	</h5>
       <pre><p class="w3-code">
-<b>python test.py --input=INPUT_EM_MAP_DIR --G_res_blocks=15 --D_res_blocks=3 --G_path=GENERATOR_MODEL_PATH --D_path=DISCRIMINATOR_MODEL_PATH</b><br>
+<b>python test.py --dir_path=INPUT_DATA_DIR --res_blocks=5 --batch_size=128 --in_channels=32 --G_path=GENERATOR_MODEL_PATH --D_path=DISCRIMINATOR_MODEL_PATH</b><br>
 <b>INPUT:</b>
-  --input               Path to directory containing input EM map files  
-  --G_res_blocks        Number of ResNet blocks in Generator (Default : 15)
-  --D_res_blocks        Number of ResNet blocks in Discriminator (Default : 3)
+  --dir_path            Path to data directory created in the last step  
   --G_path              Specify path of Generator model
   --D_path              Specify path of Discriminator model
 <br>
 <b>OUTPUT:</b>
-This program writes output super-resolution em map to the same directory as input.
+This program writes output super-resolution em map cubes to the same directory as input.
 
 <b>USAGE:</b>
-python test.py --input=INPUT_EM_MAP_DIR --G_res_blocks=15 --D_res_blocks=3 --G_path=model/Generator --D_path=model/Discriminator
+python test.py --res_blocks=5 --batch_size=128 --in_channels=32 --G_path=model/G_model --D_path=model/D_model --dir_path=data_dir/
       </p></pre>
+
+<h5>
+Finally, run the below two python scripts to merge the SR cubes generated into a final super-resolution map
+</h5>
+python sr_dataprep.py
+      </p></pre>
+python avg_model.py
+      </p></pre>      
       </div>
   </div>
+<h5>
+Super-Resolution map is written to Merged.mrc file
+</h5>
 
 </div>
 
@@ -125,22 +141,16 @@ python test.py --input=INPUT_EM_MAP_DIR --G_res_blocks=15 --D_res_blocks=3 --G_p
 <h5>You can download the EM map for protein structure with EMID 2788 : ftp://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-2788. Use this map file and follow the instructions in step 1 of usage guide to generate input dataset file.
 		The trimmap file is generated as 
 	</h5>
-	<pre><p class="w3-code">data_prep/HLmapData_new  2788.mrc -c 0.16 >  2788_trimmap</p></pre>
+	<pre><p class="w3-code">./HLmapData_new  -a 2788.mrc -b 2788.mrc -A  0.16 -B 0.16 -w 12 -s 4>  2788_trimmap</p></pre>
 	<h5>The author recommended contour level for the map EMD-2788 is 0.16 which has been provided as one of the options above.
 	</h5>
 	<h5>You can generate the input dataset file as follows,
 	</h5>
-	<pre><p class="w3-code">python data_prep/dataset_final.py 2788_trimmap 2788_dataset 2788</p></pre>
-	<h5>	
-	If the generated input file is 2788_dataset, write the file location to a dataset location file as follows
-      </h5>
-	  <pre><p class="w3-code">echo ./2788_dataset > test_dataset_location</p></pre>
+	<pre><p class="w3-code">python data_prep/dataset_reso.py 2788_trimmap 2788_data ./data_dir</p></pre>
     </div>
     <div class="w3-third w3-center ">
      <img src=data/git/1.png width="600" height="300"> <p align="left">Density Map, 2788.mrc</p>
     </div>
-	<!--style="width:150%;height:500%"-->
-
   </div>
 </div>
 <div class="w3-content">
@@ -151,9 +161,17 @@ python test.py --input=INPUT_EM_MAP_DIR --G_res_blocks=15 --D_res_blocks=3 --G_p
       </h5>
 
 ```
-python test.py --input=test_dataset_location --G_res_blocks=15 --D_res_blocks=3 --G_path=model/Generator --D_path=model/Generator
-
+python test.py --res_blocks=5 --batch_size=128 --in_channels=32 --G_path=model/G_model --D_path=model/D_model --dir_path=./data_dir/
 ```
+```
+python sr_dataprep.py
+```
+```
+python avg_model.py
+```
+<h5>
+Super-Resolution map is written to Merged.mrc file
+</h5>
 <h5>
 	An example of generated super-resolution map of EMD-2788 is shown below.
   </div> 
