@@ -138,7 +138,7 @@ Super-Resolution map is written to Merged.mrc file
     <div class="w3-twothird">
 
 	
-<h5>You can download the EM map for protein structure with EMID 2788 : ftp://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-2788. Use this map file and follow the instructions in step 1 of usage guide to generate input dataset file.
+<h5>The example map of 2788 is available here from data/2788.mrc Use this map file and follow the instructions in step 1 of usage guide to generate input dataset file.
 		The trimmap file is generated as 
 	</h5>
 	<pre><p class="w3-code">data_prep/HLmapData -a 2788.mrc -b 2788.mrc -A  0.16 -B 0.16 -w 12 -s 4 >  2788_trimmap</p></pre>
