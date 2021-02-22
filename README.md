@@ -1,8 +1,6 @@
 # SuperEM
-<p align="center">
-  <img src="data/git/logo2.png" alt="framework" width="50%">
-</p> 
-SuperEM is a 3D deep learning based super-resolution method which uses Generative Adversarial Networks (GAN) to improve the resolution of cryo-EM maps in the resolution ranges of 3 Å to 6 Å.  <br>
+ 
+SuperEM is a computational tool, which enables capturing protein structure information from cryo-EM maps more effectively than raw maps. It is based on 3D deep learning. It is aimed to help protein structure modeling from cryo-EM maps.  <br>
 Copyright (C) 2021 Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi, Daisuke Kihara, and Purdue University.  
 
 License: GPL v3 for academic use. (For commercial use, please contact us for different licensing)  
@@ -13,7 +11,7 @@ Cite : Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi & Daisuke Kih
 
 ## About SuperEM  
 
-Over the past few years, the resolutions of the maps solved by Cryo-Electron Microscopy (Cryo-EM) have largely improved. Although computational protein structure modelling tools perform better as the resolution improves, de novo modelling of the structures still has limitations when the EM map resolution is worse than 4 Å. We report SuperEM, a novel 3D Generative Adversarial Network (GAN) based method to generate super-resolution EM map by taking an experimental EM map as input. SuperEM is designed to work with EM maps in the resolution range of 3 Å to 6 Å and has shown an average resolution improvement of 0.481 Å on a test dataset of 36 experimental maps. In addition, the generated super-resolution maps have also shown to result in better modelling of protein structures with a coverage improvement of 10.2% with MAINMAST and a GDT-TS improvement of 11.5% with phenix further proving the effectiveness of SuperEM in cryo-EM protein modelling.  
+Over the past few years, the resolutions of the maps solved by Cryo-Electron Microscopy (Cryo-EM) have largely improved. Although computational protein structure modelling tools perform better as the resolution improves, de novo modelling of the structures still has limitations when the EM map resolution is worse than 4 Å. We report SuperEM, a novel 3D Generative Adversarial Network (GAN) based method to generate super-resolution EM map by taking an experimental EM map as input. SuperEM is designed to work with EM maps in the resolution range of 3 Å to 6 Å. In addition, the generated super-resolution maps have also shown to result in better modelling of protein structures with a coverage improvement of 10.2% with MAINMAST and a GDT-TS improvement of 11.5% with phenix further proving the effectiveness of SuperEM in cryo-EM protein modelling.  
 
 GAN architecture of SuperEM is shown below.  
 
