@@ -1,22 +1,22 @@
-# SuperEM
+# EM-GAN
  
-SuperEM is a computational tool, which enables capturing protein structure information from cryo-EM maps more effectively than raw maps. It is based on 3D deep learning. It is aimed to help protein structure modeling from cryo-EM maps.  <br>
+EM-GAN is a computational tool, which enables capturing protein structure information from cryo-EM maps more effectively than raw maps. It is based on 3D deep learning. It is aimed to help protein structure modeling from cryo-EM maps.  <br>
 Copyright (C) 2021 Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi, Daisuke Kihara, and Purdue University.  
 
 License: GPL v3 for academic use. (For commercial use, please contact us for different licensing)  
 
 Contact: Daisuke Kihara (dkihara@purdue.edu)  
 
-Cite : Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi & Daisuke Kihara. Super Resolution Cryo-EM Maps With 3D Deep Generative Networks. In submission (2021).  
+Cite : Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi & Daisuke Kihara. Improved Protein Structure Modeling Using Enhanced Cryo-EM Maps With 3D Deep Generative Networks. In submission (2021).  
 
-## About SuperEM  
+## About EM-GAN  
 
-Over the past few years, the resolutions of the maps solved by Cryo-Electron Microscopy (Cryo-EM) have largely improved. Although computational protein structure modelling tools perform better as the resolution improves, de novo modelling of the structures still has limitations when the EM map resolution is worse than 4 Å. We report SuperEM, a novel 3D Generative Adversarial Network (GAN) based method to generate super-resolution EM map by taking an experimental EM map as input. SuperEM is designed to work with EM maps in the resolution range of 3 Å to 6 Å. In addition, the generated super-resolution maps have also shown to result in better modelling of protein structures with a coverage improvement of 10.2% with MAINMAST and a GDT-TS improvement of 11.5% with phenix further proving the effectiveness of SuperEM in cryo-EM protein modelling.  
+An increasing number of biological macromolecules have been solved with cryo-electron microscopy (cryo-EM). Over the past few years, the resolutions of density maps determined by cryo-EM have largely improved in general. However, there are still many cases where the resolution is not high enough to model molecular structures with standard computational tools. If the resolution obtained is near the empirical border line (3 - 4 Å), improvement in the map quality facilitates improved structure modeling. Here, we report that protein structure modeling can often be substantially improved by using a novel deep learning-based method that prepares an input cryo-EM map for modeling. The method uses a three-dimensional generative adversarial network, which learns density patterns of high and low-resolution density maps.   
 
-GAN architecture of SuperEM is shown below.  
+GAN architecture of EM-GAN is shown below.  
 
 >   
-![](https://github.com/kiharalab/SuperEM/blob/master/data/git/architecture.png)   
+![](https://github.com/kiharalab/EM-GAN/blob/master/data/git/architecture.png)   
 
 
 ## Pre-required software
@@ -36,7 +36,7 @@ pytorch : pip/conda install pytorch
 
 <div id="commands" class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
-	<h5> In the following section, we give a step-by-step guide to run various programs for SuperEM.
+	<h5> In the following section, we give a step-by-step guide to run various programs for EM-GAN.
   </h5>
 
 <div id="datagen" class="w3-row-padding w3-padding-64 w3-container">
@@ -83,21 +83,21 @@ data_prep/HLmapData -a protein.mrc -b protein.mrc -A <Recommended contour level>
 	This program is a python script and it works with both python2 and python3. They can be downloaded <a href=https://www.python.org/downloads/ target="_blank">here</a>.<br>
 	</h5>
       <pre><p class="w3-code">
-<b>python data_prep/dataset_reso.py [sample_trimmap] [<ID>_data] [dataset_folder]</b>
+<b>python data_prep/generate_input.py [sample_trimmap] [<ID>_data] [dataset_folder]</b>
 <br>
 <b>INPUTS:</b> 
 Inputs to this script are trimmap generated in the previous step, ID is a unique identifier of a map such as EMID, and dataset_folder which is a folder to write dataset files. <br><br>
 <b>USAGE:</b>
-python data_prep/dataset_reso.py protein_trimmap 1_data ./data_dir/
+python data_prep/generate_input.py protein_trimmap 1_data ./data_dir/
      </p></pre>  
       </div>
   </div>
     <div class="w3-content">
 	<div id="superem" class="w3-row-padding w3-padding-64 w3-container">
-	<h2>Super Resolution EM map generation</h2>
+	<h2>GAN-Modified EM map generation</h2>
 	<h5>
-	Run SuperEM program for generating super-resolution em maps from low-resolution experimental maps.<br>
-	Use <b>test.py</b> to generate super-resolution map.<br>
+	Run EM-GAN program for generating GAN-modified em maps from low-resolution experimental maps.<br>
+	Use <b>test.py</b> to generate modified map.<br>
 	This program is a python script and it works with both python2 and python3.
 	</h5>
       <pre><p class="w3-code">
@@ -108,14 +108,14 @@ python data_prep/dataset_reso.py protein_trimmap 1_data ./data_dir/
   --D_path              Specify path of Discriminator model
 <br>
 <b>OUTPUT:</b>
-This program writes output super-resolution em map cubes to the same directory as input.
+This program writes output modified em map cubes to the same directory as input.
 
 <b>USAGE:</b>
 python test.py --res_blocks=5 --batch_size=128 --in_channels=32 --G_path=model/G_model --D_path=model/D_model --dir_path=data_dir/
       </p></pre>
 
 <h5>
-Finally, run the below two python scripts to merge the SR cubes generated into a final super-resolution map
+Finally, run the below two python scripts to merge the generated cubes generated into a final modified map
 </h5>
 python sr_dataprep.py
       </p></pre>
@@ -124,7 +124,7 @@ python avg_model.py
       </div>
   </div>
 <h5>
-Super-Resolution map is written to Merged.mrc file
+Modified map is written to Merged.mrc file
 </h5>
 
 </div>
@@ -144,7 +144,7 @@ Super-Resolution map is written to Merged.mrc file
 	</h5>
 	<h5>You can generate the input dataset file as follows,
 	</h5>
-	<pre><p class="w3-code">python data_prep/dataset_reso.py 2788_trimmap 2788_data ./data_dir</p></pre>
+	<pre><p class="w3-code">python data_prep/generate_input.py 2788_trimmap 2788_data ./data_dir</p></pre>
     </div>
     <div class="w3-third w3-center ">
      <img src=data/git/1.png width="600" height="300"> <p align="left">Density Map, 2788.mrc</p>
@@ -153,9 +153,9 @@ Super-Resolution map is written to Merged.mrc file
 </div>
 <div class="w3-content">
     <div class="w3-twothird">
-     <h3>SuperEM super-resolution map generation </h3>
+     <h3>EM-GAN modified map generation </h3>
     <h5>
-	You can then run the SuperEM program to generate super-resolution EM map as follows
+	You can then run the EM-GAN program to generate modified EM map as follows
       </h5>
 
 ```
@@ -168,13 +168,13 @@ python sr_dataprep.py
 python avg_model.py
 ```
 <h5>
-Super-Resolution map is written to Merged.mrc file
+Modified map is written to Merged.mrc file
 </h5>
 <h5>
-	An example of generated super-resolution map of EMD-2788 is shown below.
+	An example of generated modified map of EMD-2788 is shown below.
   </div> 
     <div class="w3-center ">
-     <img src=data/git/2.png width="600" height="300">  <p align="left"> Super-Resolution (SR) Map, 2788_SR.mrc</p>
+     <img src=data/git/2.png width="600" height="300">  <p align="left"> GAN-modified Map, 2788_SR.mrc</p>
     </div>  
 </div>
 <div class="w3-row-padding w3-padding-32 w3-container">
