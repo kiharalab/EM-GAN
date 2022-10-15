@@ -1,4 +1,14 @@
 # EM-GAN
+
+
+<a href="https://github.com/marktext/marktext/releases/latest">
+   <img src="https://img.shields.io/badge/EMGAN-v1.0.0-green">
+   <img src="https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20Mac%20-green">
+   <img src="https://img.shields.io/badge/Language-python3-green">
+   <img src="https://img.shields.io/badge/Language-C-green">
+   <img src="https://img.shields.io/badge/dependencies-tested-green">
+   <img src="https://img.shields.io/badge/licence-GNU-green">
+</a>      <br>
  
 EM-GAN is a computational tool, which enables capturing protein structure information from cryo-EM maps more effectively than raw maps. It is based on 3D deep learning. It is aimed to help protein structure modeling from cryo-EM maps.  <br>
 Copyright (C) 2021 Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi, Daisuke Kihara, and Purdue University.  
