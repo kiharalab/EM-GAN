@@ -26,6 +26,14 @@ Python 3 : https://www.python.org/downloads/
 pytorch : pip/conda install pytorch   
 
 ```
+## Dependencies
+```
+mrcfile==1.2.0
+numpy>=1.19.4
+numba>=0.52.0
+torch>=1.6.0
+scipy>=1.6.0
+```
 ## Instructions  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
