@@ -34,6 +34,18 @@ numba>=0.52.0
 torch>=1.6.0
 scipy>=1.6.0
 ```
+## Availability
+This software is free to use under GPL v3 for academic use. For commercial use, please contact us for different licensing.   
+
+## Timings
+Please allow 30 mins on average to get the output, since 3D input processing and inferencing takes some time.
+Our running time is directly correlated to the size of the structures. For example, a map with 260 * 260 * 260 can take 2 hours to finish.  
+
+## System requirements and compatibility
+OS: Any (e.g CentOS, Linux, Windows, Mac).  
+Necessary libararies: Please refer to the dependencies above and make sure that they're installed.  
+GPU: Optional (Any GPU with >4GB RAM should enable faster computation).  
+
 ## Instructions  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
