@@ -19,6 +19,8 @@ Contact: Daisuke Kihara (dkihara@purdue.edu)
 
 Cite : Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi & Daisuke Kihara. Improved Protein Structure Modeling Using Enhanced Cryo-EM Maps With 3D Deep Generative Networks. In submission (2021).  
 
+Google Colab: https://tinyurl.com/3ccxpttx
+
 ## About EM-GAN  
 
 An increasing number of biological macromolecules have been solved with cryo-electron microscopy (cryo-EM). Over the past few years, the resolutions of density maps determined by cryo-EM have largely improved in general. However, there are still many cases where the resolution is not high enough to model molecular structures with standard computational tools. If the resolution obtained is near the empirical border line (3 - 4 Å), improvement in the map quality facilitates improved structure modeling. Here, we report that protein structure modeling can often be substantially improved by using a novel deep learning-based method that prepares an input cryo-EM map for modeling. The method uses a three-dimensional generative adversarial network, which learns density patterns of high and low-resolution density maps.   
