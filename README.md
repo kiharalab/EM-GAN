@@ -17,7 +17,7 @@ License: GPL v3 for academic use. (For commercial use, please contact us for dif
 
 Contact: Daisuke Kihara (dkihara@purdue.edu)  
 
-Cite : Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi & Daisuke Kihara. Improved Protein Structure Modeling Using Enhanced Cryo-EM Maps With 3D Deep Generative Networks. In press (2021).  
+Cite : Sai Raghavendra Maddhuri Venkata Subramaniya, Genki Terashi & Daisuke Kihara. Improved Protein Structure Modeling Using Enhanced Cryo-EM Maps With 3D Deep Generative Networks. In press (2023).  
 
 Google Colab: https://tinyurl.com/3ccxpttx
 
