@@ -56,8 +56,16 @@ Our running time is directly correlated to the size of the structures. For examp
 ## System requirements and compatibility
 OS: Any (e.g CentOS, Linux, Windows, Mac).  
 Necessary libararies: Please refer to the dependencies above and make sure that they're installed.  
-GPU: Optional (Any GPU with >4GB RAM should enable faster computation).  
+GPU: Optional (Any GPU with >4GB RAM should enable faster computation).
 
+## Preparing the input map
+If the cryo-EM map grid spacing is not 1, please modify the grid spacing to 1 by [ChimeraX](https://www.rbvi.ucsf.edu/chimerax/) as follows:
+```
+1 open your map via chimeraX.
+2 In the bottom command line to type command: vol resample #1 spacing 1.0
+3 In the bottom command line to type command: save newmap.mrc model #2
+4 Then you can use the resampled map as an input map.
+```
 ## Instructions  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
